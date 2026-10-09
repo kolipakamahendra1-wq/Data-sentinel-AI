@@ -1,0 +1,18 @@
+# Run from the repo root:  docker compose -f infrastructure/docker-compose.yml up --build
+# Ollama runs on the host (ollama serve; ollama pull qwen2.5:3b).
+services:
+  backend:
+    build: { context: .., dockerfile: infrastructure/backend.Dockerfile }
+    environment:
+      OLLAMA_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b}
+      DATASENTINEL_API_KEYS: ${DATASENTINEL_API_KEYS:-demo-key:demo}
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    volumes: [storage:/storage]
+    ports: ["8000:8000"]
+  frontend:
+    build: { context: .., dockerfile: infrastructure/frontend.Dockerfile }
+    depends_on: [backend]
+    ports: ["8080:80"]
+volumes:
+  storage:

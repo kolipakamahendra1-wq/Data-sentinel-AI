@@ -1,0 +1,12 @@
+fastapi==0.143.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+pandas==3.0.6
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+pyarrow==26.0.0
+pydantic==2.14.0
+httpx==0.28.1
+prometheus_client==0.26.0
+pytest==9.1.1

@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+  --color-act: var(--act);
+}
+
+:root {
+  --paper: #e9ece8;
+  --panel: #f6f7f4;
+  --ink: #1b2430;
+  --muted: #56606b;
+  --rule: #c9cfc8;
+  --ok: #2e7a64;
+  --warn: #8f6512;
+  --bad: #a8382e;
+  --act: #3c5a86;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #161b21;
+    --panel: #1e252d;
+    --ink: #e4e8e3;
+    --muted: #9aa3ab;
+    --rule: #333d47;
+    --ok: #5cb597;
+    --warn: #d9a845;
+    --bad: #e07a6f;
+    --act: #8fb0e0;
+    color-scheme: dark;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--act);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
